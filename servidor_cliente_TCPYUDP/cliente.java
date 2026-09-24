@@ -1,4 +1,5 @@
-import java.io.IOException;
+package servidor_cliente_TCPYUDP;
+
 import java.net.*;
 
 public class cliente {
@@ -19,7 +20,7 @@ public class cliente {
             socket.receive(receivePacket);
 
             String reply = new String(receivePacket.getData() , 0 , receivePacket.getLength());
-            System.out.println("Respuesta del servidor: "+ reply);
+            System.out.println("Respuesta del servidor_cliente_TCPYUDP.servidor: "+ reply);
         }catch (SocketTimeoutException e){
             System.out.println("Socket Timeout");
         } catch (Exception e){

@@ -1,3 +1,5 @@
+package servidor_cliente_TCPYUDP;
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -13,7 +15,7 @@ public class clienteTCP {
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Conectando al servidor TCP " + host + ":" + port);
+            System.out.println("Conectando al servidor_cliente_TCPYUDP.servidor TCP " + host + ":" + port);
 
             System.out.println(in.readLine());
 
@@ -31,7 +33,7 @@ public class clienteTCP {
 
         } catch (IOException e) {
             System.out.println(
-                    "Error al conectar al servidor TCP "
+                    "Error al conectar al servidor_cliente_TCPYUDP.servidor TCP "
                             + host + ":" + port);
         }
     }

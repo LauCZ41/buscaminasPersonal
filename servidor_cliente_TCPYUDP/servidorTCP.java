@@ -1,3 +1,5 @@
+package servidor_cliente_TCPYUDP;
+
 import java.io.*;
 import java.net.*;
 
@@ -24,7 +26,7 @@ public class servidorTCP {
                         }
                     }
                 } catch (IOException e) {
-                    System.out.println("Error manejando al cliente: " + e.getMessage());
+                    System.out.println("Error manejando al servidor_cliente_TCPYUDP.cliente: " + e.getMessage());
                 } finally {
                     try {
                         clienteSocket.close();
