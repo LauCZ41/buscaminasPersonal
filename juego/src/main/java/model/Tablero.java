@@ -43,6 +43,17 @@ public class Tablero {
         return false;
     }
 
+    public boolean verificarVictoria() {
+        for (int i = 0; i < TAMANO; i++) {
+            for (int j = 0; j < TAMANO; j++) {
+                if (tableroReal[i][j] == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 
     public void mostrarTablero() {
         for (int i = 0; i < TAMANO; i++) {
