@@ -3,7 +3,7 @@ package main.java.cliente;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-class pendienteDeLosTableros extends Thread {
+class  pendienteDeLosTableros extends Thread {
     private BufferedReader in;
 
     public pendienteDeLosTableros(BufferedReader in) {
@@ -23,6 +23,9 @@ class pendienteDeLosTableros extends Thread {
                     System.out.println("---------------");
                 } else if (linea.equalsIgnoreCase("BOMBA") || linea.equalsIgnoreCase("FIN")) {
                     System.out.println("¡BOMBA! FIN");
+                    System.exit(0);
+                } else if (linea.equalsIgnoreCase("VICTORIA")) {
+                    System.out.println("¡VICTORIA! Han encontrado todas las casillas seguras.");
                     System.exit(0);
                 } else {
                     System.out.println("Servidor: " + linea);

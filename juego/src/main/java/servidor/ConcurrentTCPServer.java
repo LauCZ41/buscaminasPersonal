@@ -70,7 +70,7 @@ class ClientHandler implements Runnable {
             System.out.println("Atendiendo cliente en hilo: " + Thread.currentThread().getName());
             String input;
             out.println("Bienvenido al juego!");
-            out.println("Ingrese coordenadas: fila columna");
+            out.println("Ingrese coordenadas: columna fila");
             out.println("Tablero 10x10 con 10 bombas");
             out.println("Al encontrar una bomba se marca 3 en el tablero y se termina el juego");
 
@@ -93,7 +93,12 @@ class ClientHandler implements Runnable {
                 enviarTableroATodosLOL();
                 tablero.mostrarTableroREAL();
                 if (!fin) {
-                    out.println("SALVO");
+                    if (tablero.verificarVictoria()) {
+                        out.println("VICTORIA");
+                        break;
+                    } else {
+                        out.println("SALVO");
+                    }
                 }
                 if (fin) {
                     out.println("FIN");
