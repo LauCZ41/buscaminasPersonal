@@ -1,7 +1,10 @@
-package servidor_cliente_TCPYUDP;
+package main.java.cliente;
 
-import java.io.*;
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.Scanner;
 
 public class clienteTCP {
@@ -18,7 +21,7 @@ public class clienteTCP {
             System.out.println("Conectando al servidor_cliente_TCPYUDP.servidor TCP " + host + ":" + port);
 
             System.out.println(in.readLine());
-
+            System.out.println(in.readLine());
             System.out.println(in.readLine());
             System.out.println(in.readLine());
             pendienteDeLosTableros h1 = new pendienteDeLosTableros(in);
@@ -41,37 +44,6 @@ public class clienteTCP {
     private static void recibirTablero(BufferedReader in) throws IOException {
         for (int i = 0; i < 10; i++) {
             System.out.println(in.readLine());
-        }
-    }
-}
-
-class pendienteDeLosTableros extends Thread {
-    private BufferedReader in;
-
-    public pendienteDeLosTableros(BufferedReader in) {
-        this.in = in;
-    }
-
-    @Override
-    public void run() {
-        try {
-            String linea;
-            while ((linea = in.readLine()) != null) {
-                if (linea.equals("TABLERO")) {
-                    System.out.println("\n--- TABLERO ---");
-                    for (int i = 0; i < 10; i++) {
-                        System.out.println(in.readLine());
-                    }
-                    System.out.println("---------------");
-                } else if (linea.equalsIgnoreCase("BOMBA") || linea.equalsIgnoreCase("FIN")) {
-                    System.out.println("¡BOMBA! FIN");
-                    System.exit(0);
-                } else {
-                    System.out.println("Servidor: " + linea);
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Conexión cerrada.");
         }
     }
 }

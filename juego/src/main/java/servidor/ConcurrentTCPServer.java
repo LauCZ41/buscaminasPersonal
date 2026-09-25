@@ -16,7 +16,7 @@ public class ConcurrentTCPServer {
 
         Tablero tablero = new Tablero();
         tablero.iniciadorTablero();
-        tablero.colocarBombas(30);
+        tablero.colocarBombas(10);
 
         try (ServerSocket server = new ServerSocket(PORT)) {
             System.out.println("Hilos hilos en  " + PORT);
@@ -71,6 +71,8 @@ class ClientHandler implements Runnable {
             String input;
             out.println("Bienvenido al juego!");
             out.println("Ingrese coordenadas: fila columna");
+            out.println("Tablero 10x10 con 10 bombas");
+            out.println("Al encontrar una bomba se marca 3 en el tablero y se termina el juego");
 
             // tablero.mostrarTablero();
             out.println("     ");
